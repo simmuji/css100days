@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title>100 Days CSS Challenge - Day 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --line1: 0;
+        --line2: 20px;
+        --line3: 40px;
+        --line1Rotate: 0;
+        --line3Rotate: 0;
+        --line2Opacity: 1;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: rgb(23, 157, 112);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .menu-icon {
+        position: relative;
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+      }
+
+      .menu-icon span {
+        display: block;
+        width: 80px;
+        height: 10px;
+        background: #fff;
+        position: absolute;
+        border-radius: 6px;
+        transition: all ease-in-out 0.25s;
+      }
+
+      .menu-icon.toggle-collapsed {
+        animation: collapsed 0.4s forwards;
+      }
+
+      .menu-icon.toggle-expand {
+        animation: expand 0.4s forwards;
+      }
+
+      .line-1 {
+        top: var(--line1);
+        transform: rotate(var(--line1Rotate));
+      }
+      .line-2 {
+        top: var(--line2);
+        opacity: var(--line2Opacity);
+      }
+      .line-3 {
+        top: var(--line3);
+        transform: rotate(var(--line3Rotate));
+      }
+
+      @keyframes expand {
+        0% {
+          --line1: 20px;
+          --line3: 20px;
+          --line1Rotate: 45deg;
+          --line3Rotate: -45deg;
+          --line2Opacity: 0;
+        }
+        50% {
+          --line1: 20px;
+          --line3: 20px;
+          --line2Opacity: 0;
+          --line1Rotate: 0;
+          --line3Rotate: 0;
+        }
+        55% {
+          --line2Opacity: 1;
+        }
+
+        100% {
+          --line1: 0px;
+          --line3: 40px;
+          --line1Rotate: 0;
+          --line3Rotate: 0;
+          --line2Opacity: 1;
+        }
+      }
+
+      @keyframes collapsed {
+        0% {
+          --line1: 0;
+          --line3: 40px;
+        }
+        15% {
+          --line1: -10px;
+          --line3: 50px;
+        }
+        50% {
+          --line1: 20px;
+          --line3: 20px;
+          --line2Opacity: 1;
+          --line1Rotate: 0;
+          --line3Rotate: 0;
+        }
+        55% {
+          --line2Opacity: 0;
+        }
+        100% {
+          --line1: 20px;
+          --line3: 20px;
+          --line1Rotate: 45deg;
+          --line3Rotate: -45deg;
+          --line2Opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    Menu Icon: Used on almost every website by now, simple but impressively animated it becomes a real eye-catcher    
+    https://100dayscss.com/days/2/
+    -->
+    <div class="menu-icon">
+      <span class="line-1"></span>
+      <span class="line-2"></span>
+      <span class="line-3"></span>
+    </div>
+  </body>
+</html>
