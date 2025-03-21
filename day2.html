@@ -126,10 +126,27 @@
     Menu Icon: Used on almost every website by now, simple but impressively animated it becomes a real eye-catcher    
     https://100dayscss.com/days/2/
     -->
-    <div class="menu-icon">
+    <div id="menu" class="menu-icon">
       <span class="line-1"></span>
       <span class="line-2"></span>
       <span class="line-3"></span>
     </div>
   </body>
+  <script>
+    (function(){
+        const menu = document.getElementById('menu');
+        menu.addEventListener('click', toggleMenu)
+        function toggleMenu(){
+            if(menu.classList.contains('toggle-collapsed')) {
+                menu.classList.remove('toggle-collapsed')
+                menu.classList.add('toggle-expand');
+
+            } else {
+                menu.classList.remove('toggle-expand');
+                menu.classList.add('toggle-collapsed')
+            }
+        }
+
+    })();
+  </script>
 </html>
