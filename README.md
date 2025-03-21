@@ -12,6 +12,7 @@ Each day, I complete a CSS challenge and share my work on CodePen. You can check
 | Day  | Challenge | CodePen Link |
 |------|----------|-------------|
 | 1    | An easy start into the challenge with a custom build number with gradient. | [view](https://codepen.io/sim-the-jiji/pen/yyLjOoq) |
+| 2    | Menu Icon: Used on almost every website by now, simple but impressively animated it becomes a real eye-catcher. | [view](https://codepen.io/sim-the-jiji/pen/pvoVOGP) |
 
 _(Table will be updated daily)_
 
