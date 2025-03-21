@@ -26,28 +26,28 @@
         justify-content: center;
         align-items: center;
       }
-      .menu-icon {
+      
+      #menu {
         position: relative;
-        cursor: pointer;
         width: 80px;
-        height: 80px;
+        height: 50px;
       }
 
-      .menu-icon span {
+      #menu span {
         display: block;
-        width: 80px;
+        width:100%;
         height: 10px;
         background: #fff;
         position: absolute;
         border-radius: 6px;
-        transition: all ease-in-out 0.25s;
+        transition: all ease-in-out 0.2s;
       }
 
-      .menu-icon.toggle-collapsed {
+      #menu.toggle-collapsed {
         animation: collapsed 0.4s forwards;
       }
 
-      .menu-icon.toggle-expand {
+      #menu.toggle-expand {
         animation: expand 0.4s forwards;
       }
 
@@ -126,7 +126,7 @@
     Menu Icon: Used on almost every website by now, simple but impressively animated it becomes a real eye-catcher    
     https://100dayscss.com/days/2/
     -->
-    <div id="menu" class="menu-icon">
+    <a href="#" id="menu" title="Show menu">
       <span class="line-1"></span>
       <span class="line-2"></span>
       <span class="line-3"></span>
@@ -136,17 +136,16 @@
     (function(){
         const menu = document.getElementById('menu');
         menu.addEventListener('click', toggleMenu)
-        function toggleMenu(){
+        function toggleMenu(e){
+            e.preventDefault();
             if(menu.classList.contains('toggle-collapsed')) {
-                menu.classList.remove('toggle-collapsed')
-                menu.classList.add('toggle-expand');
-
+                menu.className = 'toggle-expand';
+                menu.title = 'Show menu'
             } else {
-                menu.classList.remove('toggle-expand');
-                menu.classList.add('toggle-collapsed')
+                menu.className = 'toggle-collapsed';
+                menu.title = 'Hide menu'
             }
         }
-
     })();
   </script>
 </html>
