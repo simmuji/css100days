@@ -6,9 +6,10 @@
         --sky: #75d5f2;
         --land: rgb(217, 207, 138);
         --land-shadow:#8f877479; 
+        --pyramid: #cacaca;
+        --pyramid-shade: #eaeaea;
         --sun: #ffee00;
-        --pyramid: #eaeaea;
-        --pyramid-shade: #cacaca;
+        --sun-deg: -80deg;
       }
 
       html,
@@ -30,6 +31,8 @@
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
+        animation: sun-motion 4s ease-in, pyramid-shade 3s ease-in infinite;
+     
       }
       .sun {
         width:80px;
@@ -38,7 +41,12 @@
         border-radius: 100%;
         position: absolute;
         top:0;
+        transform-origin: 50% 420%;
+        transform:rotate(var(--sun-deg));
+        transition: all ease-in-out 2s;
+
       }
+
       .land {
         height: 40%;
         width:100%;
@@ -50,6 +58,7 @@
         background: var(--pyramid);
         clip-path: polygon(50% 0%, 100% 100%, 0 100%);
         position: relative;
+        transition: all  ease-in-out .5s;
       }
 
       .left-side {
@@ -58,16 +67,96 @@
         position: absolute;
         background: var(--pyramid-shade);
         clip-path: polygon(50% 0%,65% 100%, 0 100%);
+        transition: all  ease-in-out .5s;
       }
 
       .pyramid-shadow {
-        height:35%;
-        width:50%;
         background: var(--land-shadow);
-        clip-path: polygon(0% 0%, 100% 0%, 60% 100%);
         position: relative;
-        left:25%;
+        height:100%;
+        width:73%;
+        clip-path: polygon(0% 0%, 68% 0%, 100% 0%);
+        left:25%;        
+        transition: all ease-in-out 3s;
+        animation: sun-shade 3s infinite;
       }
+
+      @keyframes sun-motion {
+        0% {
+            --sun-deg:-80deg;
+        }
+
+        50% {
+            --sun-deg:180deg;
+        }        
+        
+        100% {
+            --sun-deg: 275deg;
+        }
+      }
+
+      @keyframes pyramid-shade {
+        0% {
+            --pyramid: #c0c0c0;
+            --pyramid-shade: #eaeaea;           
+        }        
+        40% {
+            --pyramid: #e0e0e0;
+            --pyramid-shade: #eaeaea;              
+        }
+
+        60% {
+            --pyramid: #e0e0e0;
+            --pyramid-shade: #c0c0c0;                 
+        }
+
+        80% {
+            --pyramid: #eaeaea;
+            --pyramid-shade: #c0c0c0;                 
+        }
+
+        100% {
+            --pyramid: #eaeaea;
+            --pyramid-shade: #c0c0c0;              
+        }        
+      }
+
+      @keyframes sun-shade {
+        0% {
+            height:100%;
+            width:73%;
+            clip-path: polygon(0% 0%, 68% 0%, 100% 0%);
+            left:25%;
+        }
+
+        25% {
+            height:75%;
+            width:75%;
+            clip-path: polygon(0% 0%, 68% 0%, 100% 50%);
+            left:24%;
+        }
+
+        50% {
+            height:30%;
+            width:73%;
+            clip-path: polygon(0% 0%, 68% 0%, 48% 45%);
+            left:25%;
+        }
+
+        75% {
+            height:75%;
+            width:73%;
+            clip-path: polygon(32% 0%, 100% 0%, 0% 50%);
+            left:2%;
+        }        
+
+        100% {
+            height:100%;
+            width:75%;
+            clip-path: polygon(33% 0%, 100% 0%, 0% 0%);
+            left:0;
+        }
+      }      
 
 
 
