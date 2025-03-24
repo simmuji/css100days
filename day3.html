@@ -4,9 +4,11 @@
     <style>
       :root {
         --sky: #75d5f2;
-        --land: #decf69f4;
+        --land: rgb(217, 207, 138);
+        --land-shadow:#8f877479; 
         --sun: #ffee00;
-        --pyramid: #e4e1e1;
+        --pyramid: #eaeaea;
+        --pyramid-shade: #cacaca;
       }
 
       html,
@@ -43,10 +45,32 @@
         background: var(--land);
       }
       .pyramid {
-        height:30%;
-        width:40%;
+        height:25%;
+        width:50%;
         background: var(--pyramid);
+        clip-path: polygon(50% 0%, 100% 100%, 0 100%);
+        position: relative;
       }
+
+      .left-side {
+        height:100%;
+        width:100%;
+        position: absolute;
+        background: var(--pyramid-shade);
+        clip-path: polygon(50% 0%,65% 100%, 0 100%);
+      }
+
+      .pyramid-shadow {
+        height:35%;
+        width:50%;
+        background: var(--land-shadow);
+        clip-path: polygon(0% 0%, 100% 0%, 60% 100%);
+        position: relative;
+        left:25%;
+      }
+
+
+
 
 
     </style>
@@ -58,8 +82,12 @@
     -->
     <div class="canvas">
         <div class="sun"></div>
-        <div class="pyramid"></div>
-        <div class="land"></div>
+        <div class="pyramid">
+            <div class="left-side"></div>
+        </div>
+        <div class="land">
+            <div class="pyramid-shadow"></div>
+        </div>
     </div>
   </body>
 </html>
