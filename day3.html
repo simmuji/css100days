@@ -6,6 +6,7 @@
         --sky: #75d5f2;
         --land: #decf69f4;
         --sun: #ffee00;
+        --pyramid: #e4e1e1;
       }
 
       html,
@@ -17,6 +18,37 @@
         justify-content: center;
         align-items: center;
       }
+
+      .canvas{
+        width:500px;
+        height:500px;
+        background: var(--sky);
+        display: flex;
+        position:relative;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+      }
+      .sun {
+        width:80px;
+        height: 80px;
+        background: var(--sun);
+        border-radius: 100%;
+        position: absolute;
+        top:0;
+      }
+      .land {
+        height: 40%;
+        width:100%;
+        background: var(--land);
+      }
+      .pyramid {
+        height:30%;
+        width:40%;
+        background: var(--pyramid);
+      }
+
+
     </style>
   </head>
   <body>
