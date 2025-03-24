@@ -31,8 +31,11 @@
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
-        animation: sun-motion 4s ease-in, pyramid-shade 3s ease-in infinite;
-     
+        clip-path: circle(40% at 50% 50%);
+        overflow: hidden;
+        opacity:0;
+        animation: canvas 5s ease-in infinite, pyramid-shade 5s ease-in infinite;
+        
       }
       .sun {
         width:80px;
@@ -40,15 +43,13 @@
         background: var(--sun);
         border-radius: 100%;
         position: absolute;
-        top:0;
-        transform-origin: 50% 420%;
-        transform:rotate(var(--sun-deg));
-        transition: all ease-in-out 2s;
-
+        top:40px;
+        transform-origin: 50% 350%;
+        animation: sun-motion 5s linear infinite;
       }
 
       .land {
-        height: 40%;
+        height: 35%;
         width:100%;
         background: var(--land);
       }
@@ -58,7 +59,7 @@
         background: var(--pyramid);
         clip-path: polygon(50% 0%, 100% 100%, 0 100%);
         position: relative;
-        transition: all  ease-in-out .5s;
+        transition: all ease-in-out .75s;
       }
 
       .left-side {
@@ -67,7 +68,7 @@
         position: absolute;
         background: var(--pyramid-shade);
         clip-path: polygon(50% 0%,65% 100%, 0 100%);
-        transition: all  ease-in-out .5s;
+        transition: all  ease-in-out .75s;
       }
 
       .pyramid-shadow {
@@ -77,21 +78,36 @@
         width:73%;
         clip-path: polygon(0% 0%, 68% 0%, 100% 0%);
         left:25%;        
-        transition: all ease-in-out 3s;
-        animation: sun-shade 3s infinite;
+        animation: sun-shade 5s linear infinite;
+      }
+
+      @keyframes canvas {
+        0% {
+            opacity: 0;
+        }        
+        15% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
       }
 
       @keyframes sun-motion {
         0% {
-            --sun-deg:-80deg;
+            transform:rotate(-80deg);
         }
 
         50% {
-            --sun-deg:180deg;
-        }        
-        
+            transform:rotate(0deg);
+        }  
+
+           
         100% {
-            --sun-deg: 275deg;
+            transform:rotate(80deg);
         }
       }
 
@@ -100,12 +116,8 @@
             --pyramid: #c0c0c0;
             --pyramid-shade: #eaeaea;           
         }        
-        40% {
-            --pyramid: #e0e0e0;
-            --pyramid-shade: #eaeaea;              
-        }
-
-        60% {
+ 
+       75% {
             --pyramid: #e0e0e0;
             --pyramid-shade: #c0c0c0;                 
         }
@@ -129,7 +141,7 @@
             left:25%;
         }
 
-        25% {
+        20% {
             height:75%;
             width:75%;
             clip-path: polygon(0% 0%, 68% 0%, 100% 50%);
@@ -143,7 +155,7 @@
             left:25%;
         }
 
-        75% {
+        80% {
             height:75%;
             width:73%;
             clip-path: polygon(32% 0%, 100% 0%, 0% 50%);
