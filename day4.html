@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>100 Days CSS Challenge - Day 4</title>
+    <style>
+      :root {
+        --background: #f756ec;
+        --loader: rgb(227, 227, 227);
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--background);
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+
+
+      .loader {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--loader);
+        position: relative;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .loader::before {
+        content: '';
+        width: 70%;
+        height: 70%;
+        background: var(--loader);
+        border-radius: 50%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 1s;
+        animation-duration: 2s;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);  
+      }      
+
+      .loader::after {
+        content: '';
+        width: 30%;
+        height: 30%;
+        background: var(--loader);
+        border-radius: 50%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 1s;
+        animation-duration: 2s;
+
+
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);        
+      }
+
+
+ 
+      @keyframes pulsing {
+        0% {
+          transform: scale(0);
+        }
+        75% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <!--
+    Loading: The best are always websites that do not need a loading status. If they do, here would be a calming one.
+    https://100dayscss.com/days/4/
+    -->
+    <main>
+        <div class="loader"> </div>
+    </main>
+  </body>
+</html>
