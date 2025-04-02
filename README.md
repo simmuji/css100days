@@ -14,5 +14,7 @@ Each day, I complete a CSS challenge and share my work on CodePen. You can check
 | 1    | An easy start into the challenge with a custom build number with gradient. | [view](https://codepen.io/sim-the-jiji/pen/yyLjOoq) |
 | 2    | Menu Icon: Used on almost every website by now, simple but impressively animated it becomes a real eye-catcher. | [view](https://codepen.io/sim-the-jiji/pen/pvoVOGP) |
 | 3    | The Pyramide: Not as challenging as the real pyramids in Egypt, but the shadow path is not easy. | [view](https://codepen.io/sim-the-jiji/pen/raNKEZN) |
+| 4    | Loading: The best are always websites that do not need a loading status. If they do, here would be a calming one. | [view](https://codepen.io/sim-the-jiji/pen/OPJrexK) |
+
 
 _(Table will be updated daily)_
