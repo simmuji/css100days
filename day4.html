@@ -5,6 +5,7 @@
       :root {
         --background: #f756ec;
         --loader: rgb(227, 227, 227);
+        --loader-shadow:5px 5px 10px rgba(0, 0, 0, 0.3);
       }
 
       html,
@@ -25,13 +26,12 @@
         height: 100px;
         border-radius: 50%;
         background: var(--loader);
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        box-shadow:  var(--loader-shadow);
         position: absolute;
         top:50%;
         left:50%;      
         transform: translate(-50%, -50%) scale(0); 
-        animation: pulsing 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-        transform-origin: center center;
+        animation: pulsing 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
       }
       
 
@@ -39,23 +39,23 @@
         content: '';
         width: 70%;
         height: 70%;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);  
+        box-shadow:  var(--loader-shadow);
         background: var(--loader);
         border-radius: 50%;
         position: absolute;
         top:50%;
         left:50%;
         transform: translate(-50%, -50%) scale(0);
-        animation: pulsing-2 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        animation: pulsing-2 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
       }      
 
       
       
       .loader::after {
         content: '';
-        width: 30%;
-        height: 30%;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);        
+        width: 35%;
+        height: 35%;
+        box-shadow:  var(--loader-shadow);
         background: var(--loader);
         border-radius: 50%;
         position: absolute;
@@ -63,7 +63,7 @@
         left:50%;        
         scale:1;
         transform: translate(-50%, -50%);
-        animation: pulsing-3 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        animation: pulsing-3 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
         
     
@@ -74,23 +74,25 @@
         0% {
             transform: translate(-50%, -50%) scale(0);
         }
-        20% {
+        30% {
             transform: translate(-50%, -50%) scale(1);
         }
-        75%{
+        70%{
             transform: translate(-50%, -50%) scale(1);
         }
+
+        90% {
+            transform: translate(-50%, -50%) scale(0);
+        }
+
         100% {
             transform: translate(-50%, -50%) scale(0);
         }
       }
 
       @keyframes pulsing-2 {
-        0% {
-            transform: translate(-50%, -50%) scale(0);
-        }
 
-        20% {
+        15% {
             transform: translate(-50%, -50%) scale(0);
         }
 
@@ -102,7 +104,7 @@
             transform: translate(-50%, -50%) scale(1);
         }        
 
-        75% {
+        80% {
             transform: translate(-50%, -50%) scale(0);
         }
 
@@ -112,21 +114,26 @@
       }      
 
       @keyframes pulsing-3 {
+
         0% {
             transform: translate(-50%, -50%) scale(0);
         }
 
-        35% {
+        30% {
             transform: translate(-50%, -50%) scale(0);
         }
 
-        55%{
+        45%{
             transform: translate(-50%, -50%) scale(1);
         }
 
-        65% {
-            transform: translate(-50%, -50%) scale(0);
+        50%{
+            transform: translate(-50%, -50%) scale(1);
         }        
+
+        70% {
+            transform: translate(-50%, -50%) scale(0);
+        }
 
         100% {
             transform: translate(-50%, -50%) scale(0);
