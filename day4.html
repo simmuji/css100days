@@ -1,189 +1,180 @@
 <html>
-  <head>
+
+<head>
     <title>100 Days CSS Challenge - Day 4</title>
     <style>
-      :root {
-        --background: hsla(182,100%,95%,1);
-        --background-gradient: 
-        radial-gradient(at 17% 27%, hsla(333,85%,63%,1) 0px, transparent 100%),
-radial-gradient(at 94% 16%, hsla(203,79%,75%,1) 0px, transparent 50%),
-radial-gradient(at 87% 62%, hsla(288,91%,76%,1) 0px, transparent 50%),
-radial-gradient(at 88% 37%, hsla(29,79%,79%,1) 0px, transparent 50%),
-radial-gradient(at 93% 86%, hsla(232,75%,79%,1) 0px, transparent 50%);
-        --background-gradient2:
-radial-gradient(at 53% 10%, hsla(333,85%,63%,1) 0px, transparent 50%),
-radial-gradient(at 94% 16%, hsla(203,79%,75%,1) 0px, transparent 50%),
-radial-gradient(at 87% 62%, hsla(288,91%,76%,1) 0px, transparent 50%),
-radial-gradient(at 88% 37%, hsla(29,79%,79%,1) 0px, transparent 50%),
-radial-gradient(at 93% 86%, hsla(232,75%,79%,1) 0px, transparent 50%);
-        --loader: rgb(227, 227, 227);
-        --loader-shadow:-2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        background:#d1d1d1;
- 
-      }
-
-      main {
-        height: 100%;
-        width: 100%;
-      }
-
-
-
-      .loader {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-color: hsl(20deg 0% 81.49%);
-        box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        position: absolute;
-        top:50%;
-        left:50%; 
-        opacity:0;     
-        transform: translate(-50%, -50%) scale(0); 
-        animation: pulsing 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-      }
-      
-     
-      .loader::before {
-        content: '';
-        width: 70%;
-        height: 70%;
-        border-radius: 50%;
-        background-color: hsl(20deg 0% 81.49%);
-        box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(1rem);
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%, -50%) scale(0);
-        animation: pulsing-2 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
-      }      
-
-       
-      
-      .loader::after {
-        content: '';
-        width: 35%;
-        height: 35%;
-        border-radius: 50%;
-        background-color: hsl(20deg 0% 81.49%);
-        box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(1rem);
-        position: absolute;
-        top:50%;
-        left:50%;        
-        transform: translate(-50%, -50%) scale(0);
-        animation: pulsing-3 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
-    }
-
-    
-    
-
-
- 
-      @keyframes pulsing {
-        0% {
-            opacity:0;
-            transform: translate(-50%, -50%) scale(0.75);
-            box-shadow: -2px 0px 0px rgba(255, 255, 255, 0), 5px 0px 0px rgba(0, 0, 0, 0);
+        :root {
+            --background: radial-gradient(circle, rgba(209, 209, 209, 1) 0%, rgba(250, 249, 249, 1) 100%);
+            --loader-width: 50%;
+            --loader-max-width: 150px;
+            --loader-background: hsla(20deg 0% 81.49%, 1);
+            --loader-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
         }
 
-        20% {
-            opacity:1;
-            transform: translate(-50%, -50%) scale(1.010);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--background)
         }
 
-        25% {
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+        main {
+            height: 100%;
+            width: 100%;
         }
 
 
-        80% {
-            opacity:1;
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        }
 
-        90% {
-            opacity:0.2;
+        .loader {
+            width: var(--loader-width);
+            max-width: var(--loader-max-width);
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background: var(--loader-background);
+            box-shadow: var(--loader-shadow);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
             transform: translate(-50%, -50%) scale(0);
-            box-shadow: -2px 0px 0px rgba(255, 255, 255, 0), 5px 0px 0px rgba(0, 0, 0, 0);
+            animation: pulsing 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
         }
-      }
 
-      @keyframes pulsing-2 {
 
-        15% {
+        .loader::before {
+            content: '';
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: var(--loader-background);
+            box-shadow: var(--loader-shadow);
+            backdrop-filter: blur(1rem);
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            animation: pulsing-2 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
         }
 
-        30% {
-            transform: translate(-50%, -50%) scale(1.010);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
-        }
 
-        35% {
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        }
 
-        70% {
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        80% {
+        .loader::after {
+            content: '';
+            width: 35%;
+            height: 35%;
+            border-radius: 50%;
+            background-color: hsl(20deg 0% 81.49%);
+            box-shadow: var(--loader-shadow);
+            backdrop-filter: blur(1rem);
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
-        }
-      }      
-
-      @keyframes pulsing-3 {
-
-        30% {
-            transform: translate(-50%, -50%) scale(0);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            animation: pulsing-3 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
         }
 
-        45%{
-            transform: translate(-50%, -50%) scale(1.010);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
+
+
+
+        @keyframes pulsing {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.75);
+                box-shadow: -2px 0px 0px rgba(255, 255, 255, 0), 5px 0px 0px rgba(0, 0, 0, 0);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.010);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
+            }
+
+            25% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            90% {
+                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(0);
+                box-shadow: -2px 0px 0px rgba(255, 255, 255, 0), 5px 0px 0px rgba(0, 0, 0, 0);
+            }
         }
 
-        50%{
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
-        }        
+        @keyframes pulsing-2 {
 
-        60% {
-            transform: translate(-50%, -50%) scale(1);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            15% {
+                transform: translate(-50%, -50%) scale(0);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            }
+
+            30% {
+                transform: translate(-50%, -50%) scale(1.010);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
+            }
+
+            35% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            70% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            80% {
+                transform: translate(-50%, -50%) scale(0);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            }
         }
 
-        75% {
-            transform: translate(-50%, -50%) scale(0);
-            box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
-        }      
-      }
+        @keyframes pulsing-3 {
 
+            30% {
+                transform: translate(-50%, -50%) scale(0);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            }
+
+            45% {
+                transform: translate(-50%, -50%) scale(1.010);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.51), 5px 5px 10px rgba(0, 0, 0, 0.21);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            60% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            75% {
+                transform: translate(-50%, -50%) scale(0);
+                box-shadow: -2px -1px 10px rgba(255, 255, 255, 0), 0px 0px 0px rgba(0, 0, 0, 0);
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <!--
     Loading: The best are always websites that do not need a loading status. If they do, here would be a calming one.
     https://100dayscss.com/days/4/
     -->
     <main>
-        <div class="loader"> </div>
+        <div class="loader"></div>
     </main>
-  </body>
+</body>
+
 </html>
